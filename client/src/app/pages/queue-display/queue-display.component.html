@@ -1,0 +1,35 @@
+<div class="queue-display-container">
+  <h1>รายละเอียดคิว</h1>
+
+  <div class="loading" *ngIf="loading">
+    <p>กำลังโหลดข้อมูล...</p>
+  </div>
+
+  <div class="error-message" *ngIf="error && !loading">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="queue-info" *ngIf="queueDetail && !loading">
+    <div class="queue-card">
+      <h2>หมายเลขคิว</h2>
+      <div class="queue-number">{{ queueDetail.queueNumber }}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-item">
+        <span class="label">วันที่:</span>
+        <span class="value">{{ queueDetail.date }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">เวลา:</span>
+        <span class="value">{{ queueDetail.time }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button class="btn btn-primary" (click)="goBackToTicketPage()">
+      กลับไปหน้ารับบัตรคิว
+    </button>
+  </div>
+</div>

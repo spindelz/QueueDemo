@@ -1,0 +1,29 @@
+<div class="queue-clear-container">
+  <div class="button-group">
+    <button class="btn btn-danger" (click)="clearQueue()" [disabled]="loading">
+      <span *ngIf="!loading">ล้างคิว</span>
+      <span *ngIf="loading">กำลังดำเนินการ...</span>
+    </button>
+  </div>
+
+  <div class="queue-card">
+    <h2>หมายเลขคิวปัจจุบัน</h2>
+    <div class="queue-number" [class.cleared]="currentQueueNumber === '00'">
+      {{ currentQueueNumber }}
+    </div>
+  </div>
+
+  <div class="error-message" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="success-message" *ngIf="success">
+    <p>{{ success }}</p>
+  </div>
+
+  <div class="button-group">
+    <button class="btn btn-primary" (click)="goBackToTicketPage()">
+      กลับไปหน้ารับบัตรคิว
+    </button>
+  </div>
+</div>
